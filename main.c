@@ -4,57 +4,54 @@
 
 #define MAX_LINE_LENGTH 1024
 
-void factorize(char *token);
+void factorize(long long int value);
 int main (int argc, char *argv[])
 {
-        FILE *file;
-        char line[MAX_LINE_LENGTH];
+	FILE *file;
+	char line[MAX_LINE_LENGTH];
 
-        if (argc != 2)
-        {
-                fprintf(stderr, "Usage: factors <file>");
-                exit(EXIT_FAILURE);
-        }
+	if (argc != 2)
+	{
+		fprintf(stderr, "Usage: factors <file>\n");
+		exit(EXIT_FAILURE);
+	}
 
-        file = fopen(argv[1], "r");
+	file = fopen(argv[1], "r");
 
-        if (!file)
-        {
-                fprintf(stderr, "File not found");
-                exit(EXIT_FAILURE);
-        }
+	if (!file)
+	{
+		fprintf(stderr, "File not found\n");
+		exit(EXIT_FAILURE);
+	}
 
 	while (fgets(line, MAX_LINE_LENGTH, file))
 	{
-		char *token = strtok(line, " \t\r\n");
-		factorize(token);
+		long long int value = atoll(line);
+		factorize(value);
 	}
-	
+
 	fclose(file);
 	return (0);
 }
 
-void factorize(char *token)
+void factorize(long long int value)
 {
-	int  value;
-	int i;
+	long long int i;
 
-	if (!token)
+	if (value <= 1)
 	{
-		fprintf(stderr, "Error");
+		fprintf(stderr, "not a valid number\n");
 	}
 
-	value = atoll(token);	
-
-	for (i = 1; i <= value; i++)
+	for (i = 1; i <= value / 2; i++)
 	{
 		if ((i != 1) && (value % i == 0))
 		{
-			int q = value / i;
-			printf("%d=%d*%d\n", value, q, i);
+			long long int q = value / i;
+			printf("%lld=%lld*%lld\n", value, q, i);
 			return;
 		}
 	}
-	
+
 	return;
 }
