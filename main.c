@@ -37,7 +37,6 @@ int main (int argc, char *argv[])
 void factorize(char *token)
 {
 	int  value;
-	int half;
 	int i;
 
 	if (!token)
@@ -46,11 +45,10 @@ void factorize(char *token)
 	}
 
 	value = atoll(token);	
-	half = value / 2;
 
-	for (i = 2; i <= half; i++)
+	for (i = 1; i <= value; i++)
 	{
-		if (value % i == 0)
+		if ((i != 1) && (value % i == 0))
 		{
 			int q = value / i;
 			printf("%d=%d*%d\n", value, q, i);
