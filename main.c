@@ -5,6 +5,13 @@
 #define MAX_LINE_LENGTH 1024
 
 void factorize(long long int value);
+/**
+ * main - entry point
+ * @argc: number of arguments
+ * @argv: arguments
+ *
+ * Return: 0 or 1
+ */
 int main (int argc, char *argv[])
 {
 	FILE *file;
@@ -34,6 +41,10 @@ int main (int argc, char *argv[])
 	return (0);
 }
 
+/**
+ * factorize - get the smallest factors of the value
+ * @value: value to find its facto
+ */
 void factorize(long long int value)
 {
 	long long int i;
