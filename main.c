@@ -30,6 +30,7 @@ int main (int argc, char *argv[])
 		factorize(token);
 	}
 	
+	fclose(file);
 	return (0);
 }
 
