@@ -35,9 +35,9 @@ int main (int argc, char *argv[])
 
 void factorize(char *token)
 {
-	long long int  value;
-	long long int half;
-	long long int i;
+	int  value;
+	int half;
+	int i;
 
 	if (!token)
 	{
@@ -51,8 +51,8 @@ void factorize(char *token)
 	{
 		if (value % i == 0)
 		{
-			long long int q = value / i;
-			printf("%lld=%lld*%lld\n", value, q, i);
+			int q = value / i;
+			printf("%d=%d*%d\n", value, q, i);
 			return;
 		}
 	}
